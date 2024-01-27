@@ -1,0 +1,174 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Uebung Fuer den Test</title>
+
+        <style>
+
+            input{
+                height: 200px;
+                width: 200px;
+                font-size:  0px;
+                
+            }
+            
+            
+
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <table>
+
+            <tr>
+                <td><input type="button" value="1" onclick="move(this, value)"></td>
+                <td><input type="button" value="2" onclick="move(this, value)"></td>
+                <td><input type="button" value="3" onclick="move(this, value)"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="4" onclick="move(this, value)"></td>
+                <td><input type="button" value="5" onclick="move(this, value)"></td>
+                <td><input type="button" value="6" onclick="move(this, value)"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="7" onclick="move(this, value)"></td>
+                <td><input type="button" value="8" onclick="move(this, value)"></td>
+                <td><input type="button" value="9" onclick="move(this, value)"></td>
+            </tr>
+
+
+        </table>
+       
+        
+
+
+        <script>
+
+            let spieler ="X";
+
+            let draw = false;
+
+            let spx = {}
+                
+
+                for(let i = 0; i < 9; i++){
+                    spx[i] = "";
+                }
+           
+
+
+            function move(elem, index){
+
+                
+
+                if(elem.value != "X" && elem.value != "O"){
+                    elem.value = spieler;
+                    elem.style.cssText = "font-size:  200px;"
+                    if(spieler == "X"){
+                        spx[index - 1] = "X";
+                    }
+                    else if(spieler == "O"){
+                        spx[index - 1] = "O";
+                    }
+                    
+                    
+                }
+                else{
+                    alert("Fehleingabe!");
+                    return;
+                }
+                
+                wintest();
+
+            }
+
+            function changePlayer(){
+                if(spieler == "X"){
+                    spieler = "O";
+                }
+                else{
+                    spieler = "X";
+                }
+
+            }
+
+            function wintest(){
+
+                
+
+
+                draw = false;
+
+                if(spx[0] == spieler && spx[1] == spieler && spx[2] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[3] == spieler && spx[4] == spieler && spx[5] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[6] == spieler && spx[7] == spieler && spx[8] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[0] == spieler && spx[4] == spieler && spx[8] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[6] == spieler && spx[4] == spieler && spx[2] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[0] == spieler && spx[3] == spieler && spx[6] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[1] == spieler && spx[4] == spieler && spx[7] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                if(spx[2] == spieler && spx[5] == spieler && spx[8] == spieler){
+                    changePlayer();
+                    setTimeout(function(){ alert("Spieler " + spieler + " hat Gewonnen!");},1);
+                    location.reload();
+                }
+                
+                
+
+                for(let i = 0; i < 9; i++)
+                {
+                    if(spx[i] == ""){
+                        draw = true;
+                    }
+                }
+
+                if(draw == false)
+                {
+                    alert("UNTENSCHIEDEN!")
+                    location.reload();
+                }
+
+                changePlayer();
+            }
+
+            
+
+        </script>
+
+    </body>
+
+
+</html>
