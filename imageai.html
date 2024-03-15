@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+
+    <link rel="stylesheet" href="stylesheet.cs">
+
+    <style>
+        a{color: rgb(92, 36, 247);}
+
+    </style>
+
+
+</head>
+
+<body>
+    
+    <input type ="button" value="Generate" onclick="send()">
+
+</body>
+
+
+
+<script>
+    
+
+
+   
+    function send() {
+
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://img4me.p.rapidapi.com/?text=Test%20Me&font=trebuchet&size=12&fcolor=000000&bcolor=FFFFFF&type=png',
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '0c870416d2msh2ca64ccf1cc039bp1a1eb1jsne90f7f9e3024',
+                'X-RapidAPI-Host': 'img4me.p.rapidapi.com'
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    }
+    
+
+
+    
+</script>
+
+</html>
