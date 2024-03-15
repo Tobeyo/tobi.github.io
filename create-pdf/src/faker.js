@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-export function generateFakeOrder() {
+export function generateOrder() {
   const items = Array.from(
     { length: faker.number.int({ min: 1, max: 5 }) },
     () => ({
