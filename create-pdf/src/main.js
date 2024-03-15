@@ -1,13 +1,12 @@
 import { createPdf } from './pdf.js';
-import { generateFakeOrder } from './faker.js';
+import {generateOrder} from "./order.js";
 
 export default async ({ res, log }) => {
-  const fakeOrder = generateFakeOrder();
-  log(`Generated fake order: ${JSON.stringify(fakeOrder, null, 2)}`);
+  const order = generateOrder()
+  log(`Generated order: ${JSON.stringify(order, null, 2)}`);
 
-  const pdfBuffer = await createPdf(fakeOrder);
+  const pdfBuffer = await createPdf(order);
   log('PDF created.');
 
   return res.send(pdfBuffer, 200, { 'Content-Type': 'application/pdf' });
 };
-
