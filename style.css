@@ -1,0 +1,22 @@
+nav{
+    position: fixed;
+    float:left;
+    width: 120px;
+    height: 100%;
+}
+
+aside{
+    float:right;
+    width: 200px;
+    height: 100%;
+}
+
+article{
+    margin-bottom: 5vh;
+    padding-left:10px;
+    padding-right: 10px;
+    margin-left:290px ;
+    margin-right: 290px;
+    height: auto;
+    opacity: 75%;
+    line-height: 30px;}
